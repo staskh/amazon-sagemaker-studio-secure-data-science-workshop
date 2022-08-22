@@ -29,10 +29,12 @@ EXTERNAL_CONNECTION_NAME=public:pypi # this doesn't change
 # Set AWS_PROFILE variable in environment if needed
 
 # Install pip packages, this will download and cache pip packages in CodeArtifact shared repo
-pip3 install --no-cache-dir --user awswrangler==2.9.0 stepfunctions==2.2.0 smdebug==1.0.10 shap==0.39.0 sagemaker-experiments==0.1.33
+sudo apt-get install python3-dev
+pip3 install --no-cache-dir --user awswrangler==2.16.0
+pip3 install --no-cache-dir --user stepfunctions==2.2.0 smdebug==1.0.10 shap==0.39.0 sagemaker-experiments==0.1.33
 pip3 install --no-cache-dir --user \
   --only-binary=:all: \
-  numpy==1.20.3 pandas==1.2.5 protobuf==3.17.3 pyarrow==4.0.1 scikit-learn==0.24.2 scipy==1.7.0 psycopg2-binary xgboost==1.4.2
+  numpy pandas protobuf pyarrow scikit-learn scipy psycopg2-binary xgboost
 
 # Disassociate external public PyPI connection to restrict package download from public PYPI repo.
 # AWS CodeArtifact service as of this writing by default will download packages from public PYPI repo
